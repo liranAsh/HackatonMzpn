@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/35a022b0-938c-4075-bee9-58add25f07a3/resourceGroups/hackaton_2019/providers/Microsoft.Web/sites/group2webapp",
+    "appService.deploySubpath": ""
+}
