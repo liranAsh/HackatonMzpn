@@ -9,7 +9,7 @@ class GuardsToday extends Component {
   render() {
     return (
         <Paper style={styles.card}>
-          <Typography variant="h5" component="h3" style={styles.cardTitle}>
+          <Typography variant="h5" component="h3">
             שומרים היום
           </Typography>
           <GuardsList headline="יורדים"></GuardsList>
@@ -27,8 +27,6 @@ const styles =
     borderRadius: 16,
     width: '50%',
     height: 'auto'
-  },
-  cardTitle: {
   }
 };
 
