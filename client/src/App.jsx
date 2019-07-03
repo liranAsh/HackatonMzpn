@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 import GuardsToday from './guardsToday/GuardsTodayBox';
+import MyNextGuard from './MyGuard/MyNextGuard';
+
 class App extends Component {
   state = {users: []};
 
@@ -13,11 +15,10 @@ class App extends Component {
   render() {
     return (
         <div className="App">
-          <h1>Users</h1>
-          {this.state.users.map(user =>
-              <div key={user.id}>{user.username}</div>
-          )}
+        ``<h1>Guardians of Maklef</h1>
           <GuardsToday></GuardsToday>
+          <MyNextGuard></MyNextGuard>
+
         </div>
     );
   }

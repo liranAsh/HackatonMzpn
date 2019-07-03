@@ -27,7 +27,7 @@ class GuardsList extends Component {
   render() {
     return (
         <div className="App">
-          <h1>{this.props.headline}</h1>
+          <h3>{this.props.headline}</h3>
           {this.state.guards.map(guard =>
               <div key={guard.id}>{guard.type} : {guard.name}</div>
           )}

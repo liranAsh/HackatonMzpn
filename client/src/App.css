@@ -31,3 +31,11 @@
     transform: rotate(360deg);
   }
 }
+
+.guardstodaybox{
+  background-color: aquamarine;
+}
+
+.mynextguard{
+  background-color: aqua;
+}

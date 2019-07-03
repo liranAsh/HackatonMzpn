@@ -7,7 +7,7 @@ class GuardsToday extends Component {
   render() {
     return (
         <div className="guardstodaybox">
-          <h1>שומרים היום</h1>
+          <h2>שומרים היום</h2>
           <GuardsList headline="יורדים"></GuardsList>
           <GuardsList headline="עולים"></GuardsList>
         </div>
