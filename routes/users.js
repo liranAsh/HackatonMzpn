@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var redis = require('redis');
 
-var redisClient = redis.createClient({host : 'https://hackaton-redis1.northeurope.cloudapp.azure.com', port : 8443});
+var redisClient = redis.createClient({host : 'hackaton-redis1.northeurope.cloudapp.azure.com', port : 8443});
 redisClient.auth('redis1234',function(err,reply) {
     console.log(reply);
 });
