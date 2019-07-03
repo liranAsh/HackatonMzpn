@@ -9,11 +9,13 @@ class GuardsToday extends Component {
   render() {
     return (
         <Paper style={styles.card}>
-          <Typography variant="h5" component="h3">
-            שומרים היום
-          </Typography>
-          <GuardsList headline="יורדים"></GuardsList>
-          <GuardsList headline="עולים"></GuardsList>
+          <div style={styles.titleSection}>
+            <h1 style={styles.title}>שומרים היום</h1>
+          </div>
+          <div style={styles.cardContent}>
+            <GuardsList headline="יורדים"></GuardsList>
+            <GuardsList headline="עולים"></GuardsList>
+          </div>
         </Paper>
     );
   }
@@ -23,10 +25,31 @@ const styles =
 {
   card: {
     margin: '0 auto',
-    padding: 16,
     borderRadius: 16,
     width: '50%',
-    height: 'auto'
+    height: 'auto',
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  title: {
+    color: '#ffffff',
+    fontFamily: 'gisha',
+    textAlign: 'center',
+  },
+  titleSection: {
+    borderTopLeftRadius: 16,
+    borderTopRightRadius: 16,
+    textAlign: 'center',
+    height: '20%',
+    backgroundColor: '#ff5722',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  cardContent: {
+    paddingBottom: 16,
+    paddingRight: 16,
+    paddingLeft: 16,
   }
 };
 
