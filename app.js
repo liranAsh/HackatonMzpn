@@ -17,9 +17,14 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(__dirname + '/client/build')); //serves the index.html
 
-app.use('/', indexRouter);
+//app.use('/', indexRouter);
+
+app.get('/', function(req, res, next) {
+  res.sendFile(__dirname + '/client/build/index.html');
+});
+
 app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler
