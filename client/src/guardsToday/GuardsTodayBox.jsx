@@ -13,8 +13,8 @@ class GuardsToday extends Component {
             <h1 style={styles.title}>שומרים היום</h1>
           </div>
           <div style={styles.cardContent}>
-            <GuardsList headline="יורדים"></GuardsList>
             <GuardsList headline="עולים"></GuardsList>
+            <GuardsList headline="יורדים"></GuardsList>
           </div>
         </Paper>
     );

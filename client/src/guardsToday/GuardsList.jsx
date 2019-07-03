@@ -1,21 +1,18 @@
 import React, { Component } from 'react';
 import '../App.css';
+import axios from 'axios'
 class GuardsList extends Component {
-  
+
+  componentDidMount() {
+    axios.get('/request/guards')
+        .then(guards => {
+          console.log("guards", guards.data);
+          this.setState({ ...guards.data })
+        });
+  }
   constructor(props){
     super(props);
-    this.state = {guards: [
-      {
-        id:1,
-        type: "מ. תורן",
-        name: "רועי תורן"
-      },
-      {
-        id:2,
-        type:"ק. תורן",
-        name: "נעה סברנסקי"
-      }
-    ]};
+    this.state = {guards: []};
   }
 
   // componentDidMount() {
@@ -29,7 +26,7 @@ class GuardsList extends Component {
         <div >
           <h3>{this.props.headline}</h3>
           {this.state.guards.map(guard =>
-              <div key={guard.id}>{guard.type} : {guard.name}</div>
+              <div key={guard.id}>{guard.type}: {guard.name}</div>
           )}
         </div>
     );

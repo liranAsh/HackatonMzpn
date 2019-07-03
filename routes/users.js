@@ -1,15 +1,27 @@
 var express = require('express');
 var router = express.Router();
+var redis = require('redis');
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.json([{
-    id: 1,
-    username: "samsepi0l"
-  }, {
-    id: 2,
-    username: "D0loresH4ze"
-  }]);
+var redisClient = redis.createClient({host : 'localhost', port : 7001});
+redisClient.auth('redis1234',function(err,reply) {
+    console.log(reply);
 });
-
+redisClient.on('ready',function() {
+    console.log("Redis is ready");
+});
+router.post('/updateGuards', function (req, res, next) {
+    // redisClient.json_set("guards",'.', JSON.stringify(req.body), (err) => {
+    //     console.log(err);
+    // });
+    redisClient.set("guards", JSON.stringify(req.body)).then(
+        console.log("update worked")
+    );
+});
+/* GET users listing. */
+router.get('/guards', function (req, res, next) {
+    redisClient.get("guards",
+        (err, reply) => {
+            res.json(JSON.parse(reply))
+        });
+});
 module.exports = router;
