@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var redis = require('redis');
 
-var redisClient = redis.createClient({host : '52.169.229.122', port : 15268});
+var redisClient = redis.createClient({host : '10.1.1.6', port : 15268});
 redisClient.auth('redis1234',function(err,reply) {
     console.log(reply);
 });
