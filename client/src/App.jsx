@@ -16,7 +16,7 @@ class App extends Component {
   render() {
     return (
         <div className="App">
-        ``<h1>Guardians of Maklef</h1>
+        <h1>Guardians of Maklef</h1>
           <GuardsToday></GuardsToday>
           <MyNextGuard></MyNextGuard>
           <CheckList></CheckList>

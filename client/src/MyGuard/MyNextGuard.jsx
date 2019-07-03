@@ -18,7 +18,7 @@ class MyNextGuard extends Component {
     }
 
   render() {
-      var firstDate = this.state.dates[0];
+      let firstDate = this.state.dates[0];
     return (
         <div className="mynextguard">
           <h2>השמירה הבאה שלי</h2>
