@@ -7,7 +7,7 @@ class CheckList extends Component {
     this.state = {items: [
       {
         id:1,
-        name: "מדי ה",
+        name: "מדי ב",
         value: false
       },
       {
