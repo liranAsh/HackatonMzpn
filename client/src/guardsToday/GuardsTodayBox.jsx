@@ -2,7 +2,6 @@ import React, { Component, Fragment } from 'react';
 import '../App.css';
 import GuardsList from './GuardsList';
 import Paper from '@material-ui/core/Paper';
-import Typography from '@material-ui/core/Typography';
 import EditGuardsList from "./EditGuardList";
 import axios from "axios";
 

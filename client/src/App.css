@@ -48,3 +48,12 @@
   left: auto !important;
   direction: rtl;
  }
+
+.darkMode {
+  background: darkslategray;
+  color: white;
+}
+.appDarkMode {
+  background: black;
+  color: white;
+}

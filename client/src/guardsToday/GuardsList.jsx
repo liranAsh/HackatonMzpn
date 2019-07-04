@@ -19,12 +19,6 @@ class GuardsList extends Component {
       }
   }
 
-  // componentDidMount() {
-  //   fetch('/guards/' + '030719')
-  //       .then(res => res.json())
-  //       .then(guards => this.setState({ guards }));
-  // }
-
   render() {
       const guards = this.state.guards[this.dates[this.props.headline]]
     return (
