@@ -1,21 +1,55 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import '../App.css';
 import GuardsList from './GuardsList';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
+import EditGuardsList from "./EditGuardList";
+import axios from "axios";
 
 class GuardsToday extends Component {
 
+  constructor(props) {
+    super(props)
+    this.state = {
+      isEditMode: false,
+      lastUpdateTime: undefined
+    }
+  }
+
+  componentDidMount() {
+    axios.get('/request/guards')
+        .then(guards => {
+          console.log("guards", guards.data);
+          this.setState({lastUpdateTime: guards.data.lastUpdateTime })
+        });
+  }
+
+  toggleEditMode = () => {
+    this.setState({ isEditMode: !this.state.isEditMode })
+  }
+
   render() {
+    const {isEditMode, lastUpdateTime} = this.state
     return (
         <Paper style={styles.card}>
           <div style={styles.titleSection}>
             <h1 style={styles.title}>שומרים היום</h1>
           </div>
           <div style={styles.cardContent}>
-            <GuardsList headline="עולים"></GuardsList>
-            <GuardsList headline="יורדים"></GuardsList>
+            {!isEditMode ?
+                (
+                    <Fragment>
+                      <GuardsList headline="עולים"></GuardsList>
+                      <GuardsList headline="יורדים"></GuardsList>
+                    </Fragment>
+                ) :
+                (
+                    <EditGuardsList cancelEdit={this.toggleEditMode}/>
+                )}
+
           </div>
+          { !isEditMode && <img src="https://img.icons8.com/dotty/80/000000/edit-property.png" style={styles.editIcon} onClick={this.toggleEditMode} />}
+          { lastUpdateTime && <div style={styles.lastUpdateTime}>נכון ל: {new Date(lastUpdateTime).toLocaleDateString("he")}</div>}
         </Paper>
     );
   }
@@ -29,7 +63,8 @@ const styles =
     width: '50%',
     height: 'auto',
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    position: 'relative'
   },
   title: {
     color: '#ffffff',
@@ -50,6 +85,18 @@ const styles =
     paddingBottom: 16,
     paddingRight: 16,
     paddingLeft: 16,
+  },
+  editIcon: {
+    position: 'absolute',
+    left: 10,
+    bottom: 10,
+    width: 50,
+    cursor: 'pointer'
+  },
+  lastUpdateTime: {
+    position: 'absolute',
+    left: 10,
+    top: 10,
   }
 };
 

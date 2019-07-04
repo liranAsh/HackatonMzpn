@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import '../App.css';
 import axios from 'axios'
 class GuardsList extends Component {
@@ -13,6 +13,10 @@ class GuardsList extends Component {
   constructor(props){
     super(props);
     this.state = {guards: []};
+      this.dates = {
+          "עולים": "today",
+          "יורדים": "yesterday"
+      }
   }
 
   // componentDidMount() {
@@ -22,11 +26,17 @@ class GuardsList extends Component {
   // }
 
   render() {
+      const guards = this.state.guards[this.dates[this.props.headline]]
     return (
         <div >
           <h3>{this.props.headline}</h3>
-          {this.state.guards.map(guard =>
-              <div key={guard.id}>{guard.type}: {guard.name}</div>
+          {guards && guards.length && guards.map((guard, index) =>
+              <Fragment key={guard.id}>
+                  <div>{guard.type}: {guard.name}</div>
+                  <div>{guard.phone}</div>
+                  {this.state.guards.length - 1 !== index && <br/>}
+              </Fragment>
+
           )}
         </div>
     );

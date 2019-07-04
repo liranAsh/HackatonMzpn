@@ -42,3 +42,9 @@
 .mychecklist {
   background-color: bisque;
 }
+
+.rightZeroImportant {
+  right: 0 !important;
+  left: auto !important;
+  direction: rtl;
+ }
