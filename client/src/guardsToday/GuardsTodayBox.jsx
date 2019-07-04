@@ -28,10 +28,11 @@ class GuardsToday extends Component {
   }
 
   render() {
-    const {isEditMode, lastUpdateTime} = this.state
+    const {isEditMode, lastUpdateTime} = this.state;
     return (
         <Paper style={styles.card}>
           <div style={styles.titleSection}>
+            { lastUpdateTime && <div style={styles.lastUpdateTime}>נכון ל: {new Date(lastUpdateTime).toLocaleDateString("he")}</div>}
             <h1 style={styles.title}>שומרים היום</h1>
           </div>
           <div style={styles.cardContent}>
@@ -48,7 +49,6 @@ class GuardsToday extends Component {
 
           </div>
           { !isEditMode && <img src="https://img.icons8.com/dotty/80/000000/edit-property.png" style={styles.editIcon} onClick={this.toggleEditMode} />}
-          { lastUpdateTime && <div style={styles.lastUpdateTime}>נכון ל: {new Date(lastUpdateTime).toLocaleDateString("he")}</div>}
         </Paper>
     );
   }
@@ -86,15 +86,10 @@ const styles =
     paddingLeft: 16,
   },
   editIcon: {
-    position: 'absolute',
-    left: 10,
-    bottom: 10,
-    width: 50,
     cursor: 'pointer'
   },
   lastUpdateTime: {
     position: 'absolute',
-    left: 10,
     top: 10,
   }
 };
